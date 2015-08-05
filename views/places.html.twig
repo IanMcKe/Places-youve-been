@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Places I've Been</title>
+    </head>
+    <body>
+        <h1>Place I've Been</h1>
+        {% if places is not empty %}
+            <p>Here are all your tasks:</p>
+            <ul>
+                {% for place in places %}
+                <h2>{{ place.getPlace }}</h2>
+                <li>{{ place.getDuration }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+    <form action='/places' method='post'>
+        <label for='place'>Place you've Been</label>
+        <input id='place' name='place' type='text'>
+        <label for='duration'>Time you stayed</label>
+        <input id='duration' name='duration' type='text'>
+        <button type='submit'>Add place</button>
+    </form>
+    <form action='/delete_place' method='post'>
+        <button type='submit'>Clear</button>
+    </form>
+    </body>
+</html>
